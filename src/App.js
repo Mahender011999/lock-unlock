@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
+const App = () => {
+  const [text,setText] = useState(true)
 
-function App() {
+  const changeText = ()=>setText(!text)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+    <center>
+      <p >{text ? <img className='image' src='https://assets.ccbp.in/frontend/hooks/lock-img.png '
+       alt=""/>:<img className='image' src='https://assets.ccbp.in/frontend/hooks/unlock-img.png '
+        alt=""/>}</p>
+      <p className='text'>{text ? 'Your device is locked' : 'Your device is Unlocked'}</p>
+      <button className='button' onClick={changeText}>{text ? "Unlock":'lock'}</button>
+      </center>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
